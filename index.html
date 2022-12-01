@@ -22,10 +22,11 @@
         }
     </style>
     <script>
-        fileObj = new File("api-url.txt");
-        flag = fileObj.open("r")
+        fileObj = new File("/api-url.txt");
+        flag = fileObj.open("r");
         if (flag){
             var api_url = fileObj.read();
+            console.log(api_url);
         }
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (firstName,lastName)=>{
