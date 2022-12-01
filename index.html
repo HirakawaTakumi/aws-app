@@ -22,6 +22,11 @@
         }
     </style>
     <script>
+        fileObj = new File("api-url.txt");
+        flag = fileObj.open("r")
+        if (flag){
+            var api_url = fileObj.read();
+        }
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (firstName,lastName)=>{
             // instantiate a headers object
@@ -38,7 +43,7 @@
                 redirect: 'follow'
             };
             // make API call with parameters and use promises to get response
-            fetch("YOUR-API-INVOKE-URL", requestOptions)
+            fetch(api_url, requestOptions)
             .then(response => response.text())
             .then(result => alert(JSON.parse(result).body))
             .catch(error => console.log('error', error));
